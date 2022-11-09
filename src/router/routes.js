@@ -8,7 +8,9 @@ import Root from "../components/Root";
 import AddService from "../components/services/AddService";
 import Services from "../components/services/Services";
 import Login from "../components/user/Login";
+import Profile from "../components/user/Profile";
 import Register from "../components/user/Register";
+import Setting from "../components/user/Setting";
 
 const router = createBrowserRouter([
     {
@@ -51,7 +53,15 @@ const router = createBrowserRouter([
             {
                 path: "review-all",
                 element: <Reviews></Reviews>
-            }
+            },
+            {
+                path: "/profile",
+                element: <Profile></Profile>
+            },
+            {
+                path: "/setting",
+                element: <Setting></Setting>
+            },
         ]
 
 
