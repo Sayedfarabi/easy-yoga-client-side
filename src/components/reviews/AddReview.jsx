@@ -1,24 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider';
 
-const AddService = () => {
+const AddReview = () => {
+    const { user } = useContext(AuthContext);
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content">
                     <div className="card w-full max-w-lg shadow-2xl bg-base-100">
-                        <h1 className='text-6xl text-center font-semibold my-3 text-purple-500'>Service Add to Database</h1>
+                        <h1 className='text-6xl text-center font-semibold my-3 text-purple-500'>Review Add to Database</h1>
                         <div className="card-body">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Service Name :</span>
+                                    <span className="label-text">Service _Id :</span>
                                 </label>
-                                <input type="text" name='name' placeholder="Name" className="input input-bordered" required />
+                                <input type="text" name='serviceId' placeholder="" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Description :</span>
                                 </label>
-                                <input type="text" name='body' placeholder="Description of service" className="input input-bordered" required />
+                                <input type="text" name='body' placeholder="Description of review" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -28,26 +30,25 @@ const AddService = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Price :</span>
+                                    <span className="label-text">User Email :</span>
                                 </label>
-                                <input type="text" name='price' placeholder="Service Price $" className="input input-bordered" required />
+                                <input type="text" name='email' placeholder="User Email" className="input input-bordered" defaultValue={user && user.email} readOnly />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Image :</span>
+                                    <span className="label-text">User Image :</span>
                                 </label>
-                                <input type="text" name='image' placeholder="Service image (URL)" className="input input-bordered" required />
+                                <input type="url" name='image' placeholder="User image (URL)" className="input input-bordered" defaultValue={user.photoURL && user.photoURL} readOnly />
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Add Service</button>
+                                <button className="btn btn-primary">Add User Review</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };
 
-export default AddService;
+export default AddReview;

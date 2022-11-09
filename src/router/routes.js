@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Blog from "../components/Blog";
 import ErrorPage from "../components/ErrorPage";
 import Home from "../components/Home";
+import AddReview from "../components/reviews/AddReview";
 import MyReview from "../components/reviews/MyReview";
 import Reviews from "../components/reviews/Reviews";
 import Root from "../components/Root";
@@ -20,7 +21,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch("https://easy-yoga-server-side.vercel.app/")
             },
             {
                 path: "/home",
@@ -36,7 +38,9 @@ const router = createBrowserRouter([
             },
             {
                 path: "/services",
-                element: <Services></Services>
+                element: <Services></Services>,
+                loader: () => fetch("https://easy-yoga-server-side.vercel.app/services")
+
             },
             {
                 path: "add-service",
@@ -53,6 +57,10 @@ const router = createBrowserRouter([
             {
                 path: "review-all",
                 element: <Reviews></Reviews>
+            },
+            {
+                path: "add-review",
+                element: <AddReview></AddReview>
             },
             {
                 path: "/profile",
