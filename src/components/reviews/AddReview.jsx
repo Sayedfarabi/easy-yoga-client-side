@@ -14,31 +14,31 @@ const AddReview = () => {
                                 <label className="label">
                                     <span className="label-text">Service _Id :</span>
                                 </label>
-                                <input type="text" name='serviceId' placeholder="" className="input input-bordered" required />
+                                <input type="text" name='serviceId' placeholder="" className="input input-bordered border-teal-500" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Description :</span>
                                 </label>
-                                <input type="text" name='body' placeholder="Description of review" className="input input-bordered" required />
+                                <input type="text" name='body' placeholder="Description of review" className="input input-bordered border-teal-500" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Rating :</span>
                                 </label>
-                                <input type="text" name='rating' placeholder="Service Rating" className="input input-bordered" required />
+                                <input type="text" name='rating' placeholder="Service Rating" className="input input-bordered border-teal-500" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">User Email :</span>
                                 </label>
-                                <input type="text" name='email' placeholder="User Email" className="input input-bordered" defaultValue={user && user.email} readOnly />
+                                <input type="text" name='email' placeholder="User Email" className="input input-bordered border-teal-500" defaultValue={user && user.email} readOnly />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">User Image :</span>
                                 </label>
-                                <input type="url" name='image' placeholder="User image (URL)" className="input input-bordered" defaultValue={user.photoURL && user.photoURL} readOnly />
+                                <input type="url" name='image' placeholder="User image (URL)" className="input input-bordered border-teal-500" defaultValue={user.photoURL && user.photoURL} readOnly />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Add User Review</button>

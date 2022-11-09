@@ -12,31 +12,33 @@ const AddService = () => {
                                 <label className="label">
                                     <span className="label-text">Service Name :</span>
                                 </label>
-                                <input type="text" name='name' placeholder="Name" className="input input-bordered" required />
+                                <input type="text" name='name' placeholder="Name" className="input input-bordered border-teal-500" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Description :</span>
                                 </label>
-                                <input type="text" name='body' placeholder="Description of service" className="input input-bordered" required />
+                                <textarea type="text" name='body' placeholder="Description of service" className="textarea textarea-accent" required>
+                                </textarea>
+                                {/* <input type="text" name='body' placeholder="Description of service" className="input input-bordered" required /> */}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Rating :</span>
                                 </label>
-                                <input type="text" name='rating' placeholder="Service Rating" className="input input-bordered" required />
+                                <input type="text" name='rating' placeholder="Service Rating" className="input input-bordered border-teal-500" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Price :</span>
                                 </label>
-                                <input type="text" name='price' placeholder="Service Price $" className="input input-bordered" required />
+                                <input type="text" name='price' placeholder="Service Price $" className="input input-bordered border-teal-500" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Image :</span>
                                 </label>
-                                <input type="text" name='image' placeholder="Service image (URL)" className="input input-bordered" required />
+                                <input type="text" name='image' placeholder="Service image (URL)" className="input input-bordered border-teal-500" required />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Add Service</button>

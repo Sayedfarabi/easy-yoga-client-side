@@ -6,9 +6,13 @@ import Headers from './Headers';
 const Root = () => {
     return (
         <div>
-            <Headers></Headers>
-            <Outlet></Outlet>
-            <Footer></Footer>
+            <div className='min-h-screen'>
+                <Headers></Headers>
+                <Outlet></Outlet>
+            </div>
+            <div>
+                <Footer></Footer>
+            </div>
         </div>
     );
 };
