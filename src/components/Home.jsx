@@ -9,13 +9,14 @@ const Home = () => {
         <div>
             <h1 className='text-center text-4xl'>Our Services</h1>
             <div className='md:flex md:justify-evenly md:gap-3 my-5'>
-                {services.map(service => {
-                    return <ServiceCard
-                        key={service._id}
-                        service={service}
-                    >
-                    </ServiceCard>
-                })}
+                {
+                    services.map(service => {
+                        return <ServiceCard
+                            key={service._id}
+                            service={service}
+                        >
+                        </ServiceCard>
+                    })}
             </div>
             <div className='text-center'>
                 <Link to={"/services"}><button className='btn btn-sm btn-primary'>See More</button></Link>

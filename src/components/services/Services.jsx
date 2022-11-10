@@ -1,9 +1,25 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import ServiceCard from "../card/ServiceCard";
 
 const Services = () => {
+    const data = useLoaderData()
+    const services = data.data;
+    console.log(services);
     return (
-        <div>
-            <h1>This is Services Page</h1>
+        <div className='my-10'>
+            <h1 className='text-center text-4xl text-orange-500'>Our Services</h1>
+            <div className='grid md:grid-cols-3 gap-3 my-12'>
+                {
+                    services.map(service => {
+                        return <ServiceCard
+                            key={service._id}
+                            service={service}
+                        >
+                        </ServiceCard>
+                    })
+                }
+            </div>
         </div>
     );
 };

@@ -8,28 +8,27 @@ import Reviews from "../components/reviews/Reviews";
 import Root from "../components/Root";
 import AddService from "../components/services/AddService";
 import Services from "../components/services/Services";
+import Service from "../components/services/Service.jsx"
 import Login from "../components/user/Login";
 import Profile from "../components/user/Profile";
 import Register from "../components/user/Register";
 import Setting from "../components/user/Setting";
+import Accounts from "../components/Accounts.jsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
         errorElement: <ErrorPage></ErrorPage>,
-
         children: [
             {
                 path: "/",
                 element: <Home></Home>,
-
-
+                loader: () => fetch("https:/easy-yoga-server-side.vercel.app/")
             },
             {
                 path: "/home",
-                element: <Home></Home>,
-                loader: () => fetch("https:/easy-yoga-server-side.vercel.app/")
+                element: <Home></Home>
 
             },
             {
@@ -47,7 +46,12 @@ const router = createBrowserRouter([
 
             },
             {
-                path: "add-service",
+                path: "/service/:id",
+                element: <Service></Service>,
+                loader: ({ params }) => fetch(`https:/easy-yoga-server-side.vercel.app/service/${params.id}`)
+            },
+            {
+                path: "/add-service",
                 element: <AddService></AddService>
             },
             {
@@ -63,7 +67,7 @@ const router = createBrowserRouter([
                 element: <Reviews></Reviews>
             },
             {
-                path: "add-review",
+                path: "/add-review",
                 element: <AddReview></AddReview>
             },
             {
@@ -74,6 +78,10 @@ const router = createBrowserRouter([
                 path: "/setting",
                 element: <Setting></Setting>
             },
+            {
+                path: "/accounts",
+                element: <Accounts></Accounts>
+            }
         ]
 
 
