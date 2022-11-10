@@ -48,7 +48,7 @@ const AddReview = ({ service }) => {
             <div className="hero min-h-screen ">
                 <div className="hero-content">
                     <div className="card w-full max-w-lg shadow-2xl bg-base-200">
-                        <h1 className='text-4xl text-center font-semibold my-3 text-purple-500'>  Please Review for {service.name}</h1>
+                        <h1 className=' font-semibold my-3 text-5xl text-sky-800 text-center px-5'>  Please Review for {service.name}</h1>
                         <form onSubmit={handleSubmit} className="card-body">
                             <div className="form-control">
                                 <label className="label">
