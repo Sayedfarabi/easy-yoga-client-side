@@ -18,15 +18,19 @@ const router = createBrowserRouter([
         path: "/",
         element: <Root></Root>,
         errorElement: <ErrorPage></ErrorPage>,
+
         children: [
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch("https://easy-yoga-server-side.vercel.app/")
+
+
             },
             {
                 path: "/home",
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch("https:/easy-yoga-server-side.vercel.app/")
+
             },
             {
                 path: "/login",

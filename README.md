@@ -72,6 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 Usage :
 1. react
-2. react-router-dom# b6a11-service-review-client-side-Sayedfarabi
+2. react-router-dom
 3. tailwind css , daisyui 
 4. firebase
+5. react-hot-toast
