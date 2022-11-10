@@ -11,12 +11,6 @@ const Service = () => {
     const service = data.data;
     const { _id } = service;
 
-
-
-
-
-
-
     return (
         <div>
             <div className='border-solid border rounded-md border-gray-200 my-6'>
@@ -28,7 +22,7 @@ const Service = () => {
                 >
                 </ServiceDetailsCard>
             </div>
-            {/* Review Card  */}
+
             <div className='border-solid border rounded-md border-gray-200 my-6'>
 
                 <h1 className='text-5xl text-sky-800 text-center my-6'>User Review</h1>
@@ -39,7 +33,6 @@ const Service = () => {
                     setDataLoad={setDataLoad}
                     dataLoad={dataLoad}
                 >
-
                 </ReviewCard>
 
             </div>

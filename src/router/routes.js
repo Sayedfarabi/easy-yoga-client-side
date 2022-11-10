@@ -14,23 +14,18 @@ import Profile from "../components/user/Profile";
 import Register from "../components/user/Register";
 import Setting from "../components/user/Setting";
 import Accounts from "../components/Accounts.jsx";
-// import ReviewCard from "../components/card/ReviewCard";
+
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
         errorElement: <ErrorPage></ErrorPage>,
+        loader: () => fetch("https:/easy-yoga-server-side.vercel.app"),
         children: [
             {
                 path: "/",
-                element: <Home></Home>,
-                loader: () => fetch("https:/easy-yoga-server-side.vercel.app/")
-            },
-            {
-                path: "/home",
                 element: <Home></Home>
-
             },
             {
                 path: "/login",
@@ -63,11 +58,6 @@ const router = createBrowserRouter([
                 path: "/my-review",
                 element: <MyReview></MyReview>
             },
-            // {
-            //     path: "/review/:id",
-            //     element: <ReviewCard></ReviewCard>,
-            //     loader: ({ params }) => fetch(`https:/easy-yoga-server-side.vercel.app/review/${params.id}`)
-            // },
             {
                 path: "review-all",
                 element: <Reviews></Reviews>

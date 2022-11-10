@@ -1,22 +1,28 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { createContext } from 'react';
+import { Outlet, useLoaderData } from 'react-router-dom';
 import Footer from './Footer';
 import Headers from './Headers';
 
+export const ServiceContext = createContext()
 
 const Root = () => {
-    // const services = useLoaderData();
+    const services = useLoaderData()
+    const contextInfo = {
+        services
+    }
     return (
         <div>
-            <div className='min-h-screen'>
-                <Headers></Headers>
-                <div className='mx-3'>
-                    <Outlet></Outlet>
+            <ServiceContext.Provider value={contextInfo}>
+                <div className='min-h-screen'>
+                    <Headers></Headers>
+                    <div className='mx-3'>
+                        <Outlet></Outlet>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <Footer></Footer>
-            </div>
+                <div>
+                    <Footer></Footer>
+                </div>
+            </ServiceContext.Provider>
         </div>
     );
 };
