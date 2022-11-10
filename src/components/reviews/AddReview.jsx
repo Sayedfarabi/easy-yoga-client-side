@@ -1,49 +1,89 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
-const AddReview = () => {
+const AddReview = ({ service }) => {
+    const [review, setReview] = useState({});
     const { user } = useContext(AuthContext);
+
+    const handleSubmit = event => {
+        event.preventDefault()
+        const form = event.target;
+        fetch("https://easy-yoga-server-side.vercel.app/add-review", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(review)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                if (data.success) {
+                    toast.success(data.message, {
+                        duration: 4000,
+                        position: 'top-center',
+
+                    })
+                }
+                form.reset()
+            })
+        console.log(review)
+
+    }
+
+    const handleInputBlur = event => {
+        const field = event.target.name;
+        const value = event.target.value;
+
+        const newReview = { ...review }
+        newReview[field] = value;
+        setReview(newReview)
+
+    }
+
+
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen ">
                 <div className="hero-content">
-                    <div className="card w-full max-w-lg shadow-2xl bg-base-100">
-                        <h1 className='text-6xl text-center font-semibold my-3 text-purple-500'>Review Add to Database</h1>
-                        <div className="card-body">
+                    <div className="card w-full max-w-lg shadow-2xl bg-base-200">
+                        <h1 className='text-4xl text-center font-semibold my-3 text-purple-500'>  Please Review for {service.name}</h1>
+                        <form onSubmit={handleSubmit} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Service _Id :</span>
                                 </label>
-                                <input type="text" name='serviceId' placeholder="" className="input input-bordered border-teal-500" required />
+                                <input onBlur={handleInputBlur} type="text" name='serviceId' placeholder="" className="input input-bordered border-teal-500" defaultValue={service._id} required readOnly />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Description :</span>
                                 </label>
-                                <input type="text" name='body' placeholder="Description of review" className="input input-bordered border-teal-500" required />
+                                <input onBlur={handleInputBlur} type="text" name='body' placeholder="Description of review" className="input input-bordered border-teal-500" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Rating :</span>
                                 </label>
-                                <input type="text" name='rating' placeholder="Service Rating" className="input input-bordered border-teal-500" required />
+                                <input onBlur={handleInputBlur} type="text" name='rating' placeholder="Service Rating" className="input input-bordered border-teal-500" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">User Email :</span>
                                 </label>
-                                <input type="text" name='email' placeholder="User Email" className="input input-bordered border-teal-500" defaultValue={user && user.email} readOnly />
+                                <input onBlur={handleInputBlur} type="text" name='email' placeholder="User Email" className="input input-bordered border-teal-500" defaultValue={user && user.email} readOnly />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">User Image :</span>
                                 </label>
-                                <input type="url" name='image' placeholder="User image (URL)" className="input input-bordered border-teal-500" defaultValue={user.photoURL && user.photoURL} readOnly />
+                                <input onBlur={handleInputBlur} type="url" name='image' placeholder="User image (URL)" className="input input-bordered border-teal-500" defaultValue={user.photoURL && user.photoURL} readOnly />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Add User Review</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

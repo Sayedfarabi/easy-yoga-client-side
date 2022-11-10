@@ -8,7 +8,7 @@ const ServiceDetailsCard = ({ service }) => {
             <div className='flex justify-center mt-3'>
                 <div className="card card-compact md:w-2/3 mx-3 bg-base-100 shadow-xl">
 
-                    <figure><img src={image} alt={_id} /></figure>
+                    <figure><img className='w-4/5' src={image} alt={_id} /></figure>
 
                     <div className="card-body h-1/2">
                         <h2 className="card-title text-2xl">Service Name : {name}</h2>

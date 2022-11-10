@@ -8,7 +8,7 @@ const Services = () => {
     console.log(services);
     return (
         <div className='my-10'>
-            <h1 className='text-center text-4xl text-orange-500'>Our Services</h1>
+            <h1 className='text-5xl text-sky-800 text-center'>Our Services</h1>
             <div className='grid md:grid-cols-3 gap-3 my-12'>
                 {
                     services.map(service => {
