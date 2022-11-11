@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ServiceCard from "../card/ServiceCard";
+import { ServiceContext } from '../Root';
 
 const Services = () => {
     const data = useLoaderData()
+    const { setAllServices } = useContext(ServiceContext);
     const services = data.data;
-    console.log(services);
+    // console.log(services);
+    setAllServices(services)
+
     return (
         <div className='my-10'>
             <h1 className='text-5xl text-sky-800 text-center'>Our Services</h1>

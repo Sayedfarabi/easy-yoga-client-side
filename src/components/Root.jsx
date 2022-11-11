@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 import { Outlet, useLoaderData } from 'react-router-dom';
 import Footer from './Footer';
 import Headers from './Headers';
@@ -6,9 +6,13 @@ import Headers from './Headers';
 export const ServiceContext = createContext()
 
 const Root = () => {
+    const [allServices, setAllServices] = useState([])
     const services = useLoaderData()
     const contextInfo = {
-        services
+        services,
+        allServices,
+        setAllServices
+
     }
     return (
         <div>

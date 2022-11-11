@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
-    const { createUser, updateUser } = useContext(AuthContext)
+    const { createUser, updateUser, addEmailToDb } = useContext(AuthContext)
     const [error, setError] = useState()
     const navigate = useNavigate()
 
@@ -38,26 +38,7 @@ const Register = () => {
             })
     }
 
-    const addEmailToDb = email => {
-        const userEmail = {
-            email
-        }
-        fetch("https://easy-yoga-server-side.vercel.app/register", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(userEmail)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    toast.success(data.message)
-                } else {
-                    toast.error(data.message)
-                }
-            })
-    }
+
 
 
     const handleUpdateUser = profile => {

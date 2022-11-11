@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.confiq';
+import toast from 'react-hot-toast';
 
 
 export const AuthContext = createContext()
@@ -36,6 +37,26 @@ const AuthProvider = ({ children }) => {
         setUser(true)
         return signOut(auth)
     }
+    const addEmailToDb = email => {
+        const userEmail = {
+            email
+        }
+        fetch("https://easy-yoga-server-side.vercel.app/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userEmail)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    toast.success(data.message)
+                } else {
+                    toast.error(data.message)
+                }
+            })
+    }
 
     const authInfo = {
         createUser,
@@ -45,6 +66,7 @@ const AuthProvider = ({ children }) => {
         logOut,
         user,
         loading,
+        addEmailToDb
     }
 
     useEffect(() => {

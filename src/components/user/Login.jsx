@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
-    const { signIn, signInWithGoogle } = useContext(AuthContext)
+    const { signIn, signInWithGoogle, addEmailToDb } = useContext(AuthContext)
     const [error, setError] = useState();
     const navigate = useNavigate();
     const location = useLocation()
@@ -35,8 +35,12 @@ const Login = () => {
     const googleHandler = () => {
         signInWithGoogle()
             .then(result => {
-                console.log(result.user);
+                const user = result.user;
+                const userEmail = user.email;
+                addEmailToDb(userEmail)
+                getJwtToken(userEmail)
                 setError("")
+                navigate(from)
             })
             .catch(err => {
                 setError(err.message)

@@ -4,7 +4,6 @@ import ErrorPage from "../components/ErrorPage";
 import Home from "../components/Home";
 import AddReview from "../components/reviews/AddReview";
 import MyReview from "../components/reviews/MyReview";
-import Reviews from "../components/reviews/Reviews";
 import Root from "../components/Root";
 import AddService from "../components/services/AddService";
 import Services from "../components/services/Services";
@@ -58,10 +57,6 @@ const router = createBrowserRouter([
             {
                 path: "/my-review",
                 element: <PrivateRoute><MyReview></MyReview></PrivateRoute>
-            },
-            {
-                path: "review-all",
-                element: <Reviews></Reviews>
             },
             {
                 path: "/add-review",
