@@ -5,8 +5,10 @@ import { AuthContext } from '../contexts/AuthProvider';
 
 const Headers = () => {
     const { logOut, user } = useContext(AuthContext);
+
     const profileURL = "https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png";
     const userName = "User Name";
+
 
     const handleSignOut = () => {
         logOut()
@@ -16,6 +18,8 @@ const Headers = () => {
             .catch(err => {
                 alert(err.message)
             })
+
+
     }
 
 
@@ -92,7 +96,7 @@ const Headers = () => {
                                             user.photoURL ?
                                                 <img src={user.photoURL} alt="" />
                                                 :
-                                                <img src="https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png" alt="" />
+                                                <img src={profileURL} alt="" />
                                         }
 
                                     </div>
@@ -102,7 +106,7 @@ const Headers = () => {
                                         user.displayName ?
                                             <li className='text-center text-primary'>{user.displayName}</li>
                                             :
-                                            <li className='text-center'>User Name</li>
+                                            <li className='text-center'>{userName}</li>
                                     }
                                     <li>
                                         <Link to={"/profile"} className="justify-between">

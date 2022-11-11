@@ -15,7 +15,10 @@ const UserReviewCard = ({ review }) => {
         if (confirmation) {
 
             fetch(`https://easy-yoga-server-side.vercel.app/user-reviews/${_id}`, {
-                method: "DELETE"
+                method: "DELETE",
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('easy-yoga-token')}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {

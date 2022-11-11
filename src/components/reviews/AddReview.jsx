@@ -72,13 +72,13 @@ const AddReview = ({ service }) => {
                                 <label className="label">
                                     <span className="label-text">User Email :</span>
                                 </label>
-                                <input onBlur={handleInputBlur} type="text" name='email' placeholder="User Email" className="input input-bordered border-teal-500" defaultValue={user && user.email} readOnly />
+                                <input onBlur={handleInputBlur} type="text" name='email' placeholder="User Email" className="input input-bordered border-teal-500" defaultValue={user && user?.email} readOnly />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">User Image :</span>
                                 </label>
-                                <input onBlur={handleInputBlur} type="url" name='image' placeholder="User image (URL)" className="input input-bordered border-teal-500" defaultValue={user.photoURL && user.photoURL} readOnly />
+                                <input onBlur={handleInputBlur} type="url" name='image' placeholder="User image (URL)" className="input input-bordered border-teal-500" defaultValue={user?.photoURL && user?.photoURL} readOnly />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Add User Review</button>

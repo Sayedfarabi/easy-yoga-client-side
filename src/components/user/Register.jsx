@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
     const { createUser, updateUser } = useContext(AuthContext)
     const [error, setError] = useState()
+    const navigate = useNavigate()
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -22,15 +24,41 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 handleUpdateUser(profile)
-                console.log(result)
+                // console.log(result)
+                addEmailToDb(email)
+
                 setError("")
                 form.reset()
+                navigate("/login")
+
             })
             .catch(err => {
                 const error = err.message;
                 setError(error)
             })
     }
+
+    const addEmailToDb = email => {
+        const userEmail = {
+            email
+        }
+        fetch("https://easy-yoga-server-side.vercel.app/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userEmail)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    toast.success(data.message)
+                } else {
+                    toast.error(data.message)
+                }
+            })
+    }
+
 
     const handleUpdateUser = profile => {
         updateUser(profile)

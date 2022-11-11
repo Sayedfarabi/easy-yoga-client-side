@@ -1,10 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
     const { signIn, signInWithGoogle } = useContext(AuthContext)
     const [error, setError] = useState();
+    const navigate = useNavigate();
+    const location = useLocation()
+    // console.log(location);
+    const from = location?.state?.from?.pathname || "/";
+    // console.log(from)
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -14,10 +19,12 @@ const Login = () => {
 
         signIn(email, password)
             .then(result => {
-                console.log(result.user)
+                const user = result.user;
+                const userEmail = user.email;
+                getJwtToken(userEmail)
                 setError("")
+                navigate(from)
                 form.reset()
-
 
             })
             .catch(err => {
@@ -35,6 +42,22 @@ const Login = () => {
                 setError(err.message)
             })
 
+    }
+    const getJwtToken = email => {
+        const userEmail = {
+            email
+        }
+        fetch("https://easy-yoga-server-side.vercel.app/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userEmail)
+        })
+            .then(res => res.json())
+            .then(data => {
+                localStorage.setItem('easy-yoga-token', data.token);
+            })
     }
     return (
         <div>

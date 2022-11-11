@@ -10,7 +10,7 @@ const Service = () => {
     const { _id } = service;
 
     return (
-        <div>
+        <div className='mt-12'>
             <div className='border-solid border rounded-md border-gray-200 my-6'>
                 <h1 className='text-5xl text-sky-800 text-center my-6' >{service.name} Service Details</h1>
                 <ServiceDetailsCard

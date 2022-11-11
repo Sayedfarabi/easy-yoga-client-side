@@ -14,6 +14,7 @@ import Profile from "../components/user/Profile";
 import Register from "../components/user/Register";
 import Setting from "../components/user/Setting";
 import Accounts from "../components/Accounts.jsx";
+import PrivateRoute from "../components/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/my-review",
-                element: <MyReview></MyReview>
+                element: <PrivateRoute><MyReview></MyReview></PrivateRoute>
             },
             {
                 path: "review-all",
