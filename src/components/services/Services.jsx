@@ -10,9 +10,9 @@ const Services = () => {
     setAllServices(services)
 
     return (
-        <div className='my-10'>
+        <div className='my-10 bg-base-200'>
             <h1 className='text-5xl text-sky-800 text-center'>Our Services</h1>
-            <div className='grid md:grid-cols-3 gap-3 my-12'>
+            <div className='grid md:grid-cols-3 gap-3 my-12 bg-base-200'>
                 {
                     services.map(service => {
                         return <ServiceCard

@@ -50,7 +50,7 @@ const MyReview = () => {
 
 
     return (
-        <div>
+        <div className='bg-base-200'>
             <h1 className='text-4xl text-center text-cyan-800 mb-4'>This is My Review Page</h1>
             <p className='text-center'>Please Reload </p>
             <div>

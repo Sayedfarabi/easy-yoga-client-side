@@ -17,7 +17,7 @@ const Root = () => {
     return (
         <div>
             <ServiceContext.Provider value={contextInfo}>
-                <div className='min-h-screen'>
+                <div className='min-h-screen bg-base-200'>
                     <Headers></Headers>
                     <div className='mx-3'>
                         <Outlet></Outlet>

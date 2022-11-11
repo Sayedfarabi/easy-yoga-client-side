@@ -10,8 +10,8 @@ const Service = () => {
     const { _id } = service;
 
     return (
-        <div className='mt-12'>
-            <div className='border-solid border rounded-md border-gray-200 my-6'>
+        <div className='pt-12 bg-base-200'>
+            <div className='border-solid border rounded-md border-gray-200 py-6'>
                 <h1 className='text-5xl text-sky-800 text-center my-6' >{service.name} Service Details</h1>
                 <ServiceDetailsCard
                     key={_id}
@@ -33,7 +33,7 @@ const Service = () => {
 
             </div>
 
-            <div className='border-solid border rounded-md border-gray-200 my-6'>
+            <div className='border-solid border rounded-md border-gray-200 py-6'>
                 <AddReview
                     key={_id}
                     service={service}
