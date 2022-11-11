@@ -7,7 +7,6 @@ const Services = () => {
     const data = useLoaderData()
     const { setAllServices } = useContext(ServiceContext);
     const services = data.data;
-    // console.log(services);
     setAllServices(services)
 
     return (
