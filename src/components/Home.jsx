@@ -4,10 +4,10 @@ import ServiceCard from './card/ServiceCard';
 import { ServiceContext } from './Root';
 
 const Home = () => {
-    // const services = useLoaderData();
+
     const servicesData = useContext(ServiceContext);
     const services = servicesData.services;
-    // console.log(services)
+
     return (
         <div>
             <div>

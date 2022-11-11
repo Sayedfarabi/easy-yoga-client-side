@@ -45,8 +45,8 @@ const Headers = () => {
                 <ul className="menu menu-horizontal p-0">
                     <li><Link to={"/"}>Home</Link></li>
                     <li><Link to={"/services"}>Services</Link></li>
+                    <li><Link to={"/add-service"}>Add Service</Link></li>
                     <li><Link to={"/my-review"}>My Review</Link></li>
-
                     <li><Link to={"/blog"}>Blog</Link></li>
                 </ul>
             </div>

@@ -10,7 +10,7 @@ const MyReview = () => {
     const [userReviewData, setUserReviewData] = useState({})
 
     const userReviews = userReviewData?.data;
-    // console.log(userReviews)
+
 
 
     useEffect(() => {

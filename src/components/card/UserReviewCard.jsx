@@ -6,6 +6,7 @@ const UserReviewCard = ({ review }) => {
     const { user } = useContext(AuthContext)
     const { _id } = review;
 
+
     const profileURL = "https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png";
     const userName = "User Name";
 
@@ -58,13 +59,19 @@ const UserReviewCard = ({ review }) => {
                         </div>
                         <div>
                             <div className="font-bold">Name</div>
-                            {/* <div className="text-sm opacity-50">{user?.displayName}</div> */}
+
                             {
                                 user?.displayName ?
                                     <div className="text-sm opacity-50">{user?.displayName}</div>
                                     :
                                     <div className="text-sm opacity-50">{userName}</div>
                             }
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <div className="font-bold">Service Name</div>
+                            <div className="text-sm opacity-50">{review?.serviceName}</div>
                         </div>
                     </div>
                     <div>

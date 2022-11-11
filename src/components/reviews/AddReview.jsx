@@ -18,7 +18,7 @@ const AddReview = ({ service }) => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
+
                 if (data.success) {
                     toast.success(data.message, {
                         duration: 4000,
@@ -28,7 +28,7 @@ const AddReview = ({ service }) => {
                 }
                 form.reset()
             })
-        console.log(review)
+
 
     }
 
@@ -48,13 +48,20 @@ const AddReview = ({ service }) => {
             <div className="hero min-h-screen ">
                 <div className="hero-content">
                     <div className="card w-full max-w-lg shadow-2xl bg-base-200">
-                        <h1 className=' font-semibold my-3 text-5xl text-sky-800 text-center px-5'>  Please Review for {service.name}</h1>
+                        <h1 className=' font-semibold my-3 text-5xl text-sky-800 text-center px-5'>  Please Review for "{service.name} service"</h1>
+                        <p className='text-center text-xl text-gray-400'>Please click all input</p>
                         <form onSubmit={handleSubmit} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Service _Id :</span>
                                 </label>
                                 <input onBlur={handleInputBlur} type="text" name='serviceId' placeholder="" className="input input-bordered border-teal-500" defaultValue={service._id} required readOnly />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Service Name :</span>
+                                </label>
+                                <input onBlur={handleInputBlur} type="text" name='serviceName' placeholder="" className="input input-bordered border-teal-500" defaultValue={service.name} required readOnly />
                             </div>
                             <div className="form-control">
                                 <label className="label">
