@@ -9,7 +9,7 @@ const ReviewCard = ({ service }) => {
     const [reviews, setReviews] = useState();
 
     useEffect(() => {
-        fetch(`https:/easy-yoga-server-side.vercel.app/review/${_id}`)
+        fetch(`https://easy-yoga-server-side.vercel.app/review/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setDataLoad(!dataLoad)

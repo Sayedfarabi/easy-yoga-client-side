@@ -12,7 +12,7 @@ const UserReviewCard = ({ review }) => {
         const confirmation = window.confirm("You want to delete this review ? Please make sure confirm..");
         if (confirmation) {
 
-            fetch(`https:/easy-yoga-server-side.vercel.app/user-reviews/${_id}`, {
+            fetch(`https://easy-yoga-server-side.vercel.app/user-reviews/${_id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

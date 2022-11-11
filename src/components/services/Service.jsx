@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ReviewCard from '../card/ReviewCard';
 import ServiceDetailsCard from '../card/ServiceDetailsCard';
@@ -6,7 +5,6 @@ import AddReview from '../reviews/AddReview';
 
 
 const Service = () => {
-    // const [dataLoad, setDataLoad] = useState(false);
     const data = useLoaderData()
     const service = data.data;
     const { _id } = service;
@@ -30,8 +28,6 @@ const Service = () => {
                 <ReviewCard
                     key={_id}
                     service={service}
-                // setDataLoad={setDataLoad}
-                // dataLoad={dataLoad}
                 >
                 </ReviewCard>
 
