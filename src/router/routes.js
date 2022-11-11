@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Root></Root>,
         errorElement: <ErrorPage></ErrorPage>,
-        loader: () => fetch("https:/easy-yoga-server-side.vercel.app"),
+        loader: () => fetch("https://easy-yoga-server-side.vercel.app"),
         children: [
             {
                 path: "/",
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
             {
                 path: "/service/:id",
                 element: <Service></Service>,
-                loader: ({ params }) => fetch(`https:/easy-yoga-server-side.vercel.app/service/${params.id}`)
+                loader: ({ params }) => fetch(`https://easy-yoga-server-side.vercel.app/service/${params.id}`)
             },
             {
                 path: "/add-service",
