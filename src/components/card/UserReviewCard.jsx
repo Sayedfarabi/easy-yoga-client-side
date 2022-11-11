@@ -5,7 +5,9 @@ import { AuthContext } from '../../contexts/AuthProvider';
 const UserReviewCard = ({ review }) => {
     const { user } = useContext(AuthContext)
     const { _id } = review;
+
     const profileURL = "https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png";
+    const userName = "User Name";
 
 
     const deleteHandler = (_id) => {
@@ -44,8 +46,8 @@ const UserReviewCard = ({ review }) => {
                     <div className="flex items-center space-x-3">
                         <div className="avatar">
                             <div className="mask mask-squircle w-12 h-12">
-                                {user.photoURL ?
-                                    <img src={user.photoURL} alt="profilePhoto" />
+                                {user?.photoURL ?
+                                    <img src={user?.photoURL} alt="profilePhoto" />
                                     :
                                     <img src={profileURL} alt="profilePhoto" />
                                 }
@@ -53,19 +55,25 @@ const UserReviewCard = ({ review }) => {
                         </div>
                         <div>
                             <div className="font-bold">Name</div>
-                            <div className="text-sm opacity-50">{user.displayName}</div>
+                            {/* <div className="text-sm opacity-50">{user?.displayName}</div> */}
+                            {
+                                user?.displayName ?
+                                    <div className="text-sm opacity-50">{user?.displayName}</div>
+                                    :
+                                    <div className="text-sm opacity-50">{userName}</div>
+                            }
                         </div>
                     </div>
                     <div>
                         <div>
                             <div className="font-bold">Review</div>
-                            <div className="text-sm opacity-50">{review.body}</div>
+                            <div className="text-sm opacity-50">{review?.body}</div>
                         </div>
                     </div>
                     <div>
                         <div>
                             <div className="font-bold">Rating</div>
-                            <div className="text-sm opacity-50">{review.rating}</div>
+                            <div className="text-sm opacity-50">{review?.rating}</div>
                         </div>
                     </div>
 
