@@ -15,12 +15,12 @@ const AuthProvider = ({ children }) => {
     const googleProvider = new GoogleAuthProvider();
 
     const signInWithGoogle = () => {
-        setUser(true)
+        setLoading(true)
         return signInWithPopup(auth, googleProvider);
     }
 
     const createUser = (email, password) => {
-        setUser(true)
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
@@ -29,12 +29,12 @@ const AuthProvider = ({ children }) => {
     }
 
     const signIn = (email, password) => {
-        setUser(true)
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     const logOut = () => {
-        setUser(true)
+        setLoading(true)
         return signOut(auth)
     }
     const addEmailToDb = email => {
