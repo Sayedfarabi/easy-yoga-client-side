@@ -11,18 +11,18 @@ const Home = () => {
     return (
         <div>
             <div>
-                <div className="hero md:py-28 sm:py-10 bg-base-200">
+                <div className="hero md:py-12 sm:py-10 bg-base-200">
                     <div className="hero-content text-center">
                         <div className="max-w-md">
                             <h1 className="text-5xl font-bold">Hello Viewer</h1>
                             <p className="py-6">According to the National Institutes of Health, scientific evidence shows that yoga supports stress management, mental health, mindfulness, healthy eating, weight loss and quality sleep . <br />
                                 Do you want to take our service ? Then choose your preferred service now ...</p>
-                            <Link to={"/services"}><button className="btn btn-primary">Get Started</button></Link>
+                            <Link to={"/services"}><button className="btn btn-sm btn-primary">Get Services</button></Link>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className='py-40 bg-base-200'>
+            <div className='py-12 bg-base-200'>
                 <h1 className='text-center text-4xl font-semibold'>Our Services</h1>
                 <div className='md:flex md:justify-evenly md:gap-3 my-5'>
                     {
